@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+import React, {Component} from "react";
+import RenderList from './components/RenderList';
 import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const lists = [
+  { image: "https://res.cloudinary.com/dm9bs55dz/image/upload/v1605940595/OIP_h2r7oi.jpg", name: "phong098", follow: "Theo dõi"},
+  { image: "https://res.cloudinary.com/dm9bs55dz/image/upload/v1605940595/OIP_h2r7oi.jpg", name: "phong098", follow: "Theo dõi"},
+  { image: "https://res.cloudinary.com/dm9bs55dz/image/upload/v1605940595/OIP_h2r7oi.jpg", name: "phong098", follow: "Theo dõi"}
+]
+class App extends Component {
+  render(){
+    return (
+      <div className="App">
+        <div className='render-list'>
+                  <div className="headerOflist">
+                  <p>Gợi ý cho bạn</p>
+                  <p>Xem tất cả</p>
+                  </div>
+                  <ul className="listItem">
+                      {lists.map((item,index) =>
+                         <RenderList key={index} item={item}/>
+                      )}
+                  </ul>
+              </div>
+      </div>
+    );
+  }
 }
 
 export default App;
